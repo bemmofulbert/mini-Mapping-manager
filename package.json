@@ -14,7 +14,7 @@
     "@capacitor/cli": "^4.0.0",
     "@capacitor/core": "^4.0.0",
     "@esri/arcgis-rest-geocoding": "^3.6.0",
-    "@esri/arcgis-rest-request": "^4.0.0",
+    "@esri/arcgis-rest-request": "^4.2.0",
     "@esri/arcgis-rest-routing": "^4.0.3",
     "ol": "^7.4.0",
     "ol-mapbox-style": "^10.6.0",
