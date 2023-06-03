@@ -37,7 +37,7 @@ export class PointMap {
           source: this.vectorSource,
           style: ()=>new Style({
               image: new Circle({
-                radius: 12,
+                radius: 6,
                 fill: new Fill({color: couleur})
               }),
               text: new Text({

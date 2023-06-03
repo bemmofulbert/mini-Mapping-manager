@@ -1,7 +1,4 @@
-import {Map, View,} from 'ol';
-import TileLayer from 'ol/layer/Tile';
-import { apply } from 'ol-mapbox-style';
-import LayerGroup from 'ol/layer/Group';
+
 import { toLonLat,fromLonLat,transform } from 'ol/proj'
 import { ApiKeyManager } from "@esri/arcgis-rest-request";
 import { solveRoute } from '@esri/arcgis-rest-routing';

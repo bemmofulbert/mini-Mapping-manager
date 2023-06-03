@@ -35,20 +35,20 @@ const map = new Map({
   })
 });
 
-//changer de basemap
+
 const placesLayer = new VectorLayer({
   source: new VectorSource(),
   style: (feature) =>
             new Style({
               image: new Circle({
                 radius: 5,
-                fill: new Fill({ color: "green" }),
+                fill: new Fill({ color: "lightgreen" }),
                 stroke: new Stroke({ color: "hsl(220, 80%, 40%)", width: 2 })
               }),
               text: new Text({
                 font: "14px sans-serif",
                 textAlign: "left",
-                text: String(feature.get("address")) || "Les Plus Proches",
+                text: feature.get("address") ||"Proche",
                 offsetX: 8, // bouge le texte vers la droite
                 offsetY: 2, // bouge le texte vers le bas
                 fill: new Fill({ color: "hsl(220, 80%, 40%)" }),
@@ -66,14 +66,13 @@ const setBasemap = (name) => {
 	apply(map, url(name)).then((map)=> {
     //new PointMap(map,11.516667, 3.866667)
 
-    
-    map.addLayer(placesLayer);
     route.onSetBaseMap()
-    
+    map.addLayer(placesLayer);
+    placesLayer.setVisible(true);    
   })
   
-  };
-  setBasemap(document.getElementById("basemaps").value);
+};
+  setBasemap(document.getElementById("basemaps").value);  
 const basemapsSelectElement = document.getElementById("basemaps");
 basemapsSelectElement.addEventListener("change", (e) => {
 setBasemap(e.target.value);
@@ -121,17 +120,16 @@ var reverseGeocodeNow = (coordinate,coords) =>{
 
 let geocodeProcessing = (categorie,nombre)=>{
     const authentication = ApiKeyManager.fromKey(apiKey);
-    let attributesString = [];
-      
+    let point = transform(map.getView().getCenter(), "EPSG:3857", "EPSG:4326");
       //GEOCODING
       geocode({
         authentication,
-        outFields: attributesString,
+        outFields: "Place_addr,PlaceName",
     
         params: {
-          categorie,
-          location: toLonLat(map.getView().getCenter()),
-          maxLocations: nombre
+          category: categorie,
+          location: point.join(","),
+          maxLocations: 27
         }
       })
       .then((response) => {
@@ -139,6 +137,7 @@ let geocodeProcessing = (categorie,nombre)=>{
 
         placesLayer.getSource().clear();
         placesLayer.getSource().addFeatures(features);
+        console.log(categorie)
       })
       .catch((error) => {
         alert("Un probleme est survenu pendant l'utilisation du Geocoder");
@@ -147,14 +146,12 @@ let geocodeProcessing = (categorie,nombre)=>{
 }
 
 function showPlaces() {
-  
-  
   const categorie = document.getElementById("places-select").value;
   const nombre = document.getElementById("numPlace").value;
   if(nombre != null && nombre != undefined){
-
     
-    geocodeProcessing(categorie,Number(nombre))
+    
+    geocodeProcessing(categorie,nombre)
   }
 }
 document.getElementById("places-select").addEventListener("change", showPlaces);
