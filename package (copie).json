@@ -1,0 +1,23 @@
+{
+  "name": "openlayers",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.0.4",
+    "@capacitor/cli": "^5.0.4",
+    "@capacitor/core": "^5.0.4",
+    "@esri/arcgis-rest-geocoding": "^3.6.0",
+    "@esri/arcgis-rest-request": "^4.2.0",
+    "@esri/arcgis-rest-routing": "^4.0.3",
+    "ol": "latest",
+    "ol-mapbox-style": "^10.6.0",
+    "ol-popup": "^5.0.0"
+  }
+}

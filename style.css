@@ -1,0 +1,72 @@
+@import "node_modules/ol/ol.css";
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  width: 100%;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/*-----------------SELECT BASEMAP -------------------*/
+#basemaps-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#basemaps {
+  padding: 4px 8px;
+  font-size: 16px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#about{
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+#places-select {
+  font-size: 12px;
+  margin-top: 4px;
+}
+#numPlace {
+  width: 4.4em
+}
+div label[for="showInfo"], div label[for="SearchRoute"] {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+#coordsSubmitter {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+}
+#coordsSubmitter input {
+  width: 10em;
+  box-sizing: border-box;
+}
+#myPos,#divMyPos {
+  width:100%
+}
+.ol-popup{
+  background-color: azure;
+  color: black;
+  font-size: 14px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px;
+}

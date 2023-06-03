@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebMapping</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module" src="./main.js"></script>
+
+    <!--Select BASEMAP-->
+    <div id="basemaps-wrapper">
+
+      <select id="basemaps">
+        <option value="ArcGIS:Streets">Streets</option>
+        <option value="ArcGIS:Navigation">Navigation</option>
+        <option value="ArcGIS:Topographic">Topographic</option>
+        <option value="ArcGIS:LightGray">Light Gray</option>
+        <option value="ArcGIS:DarkGray">Dark gray</option>
+        <option value="ArcGIS:StreetsRelief">Streets Relief</option>
+        <option value="ArcGIS:Imagery:Standard">Imagery</option>
+        <option value="ArcGIS:ChartedTerritory">ChartedTerritory</option>
+        <option value="ArcGIS:ColoredPencil">ColoredPencil</option>
+        <option value="ArcGIS:Nova">Nova</option>
+        <option value="ArcGIS:Midcentury">Midcentury</option>
+        <option value="OSM:Standard">OSM</option>
+        <option value="OSM:Streets">OSM:Streets</option>
+      </select>
+      <div>
+        <input type=number placeholder="nombre" value="25" id="numPlace" >
+        <select id="places-select" >
+          <option value="">Choisir un type d'emplacement...</option>
+          <option value="Hospital">Hopital</option>
+          <option value="Gas station">Stations d'essence</option>
+          <option value="Food">Nourriture</option>
+          <option value="Hotel">Hotels</option>
+          <option value="Parks and Outdoors">Parcs</option>
+        </select>
+      </div>
+      <div>
+        <input type="checkbox" id="showInfo">
+        <label for="showInfo">Montrer les infos a chaque click</label>
+      </div>
+      <hr>
+      <div id="coordsSubmitter">
+        <div >
+          <input type="number" placeholder="Longitude" value="11.516667" id="lon">
+          <input type="number" placeholder="Latitude" value="3.866667" id="lat">
+        </div>
+        <div><input type="number" id="zoom" placeholder="Zoom" value="6">
+          <input type="button" value="Marquer" id="butMarker">
+        </div>
+      </div>
+      <hr>
+      <div id="divMyPos">
+        <input type="button" value="Aller a ma position" id="myPos">
+        <div>
+          <input type="checkbox" id="SearchRoute">
+          <label for="SearchRoute">Chercher une route entre deux (02) points</label>
+        </div>
+      </div>
+    </div>
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content"></div>
+    </div>
+
+
+  <!-- A_propos -->
+  <div id="about">
+    <span>©By Bemmo</span>
+  </div>
+  </body>
+</html>
