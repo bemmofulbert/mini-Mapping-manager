@@ -42,7 +42,7 @@ html, body {
 #numPlace {
   width: 4.4em
 }
-div label[for="showInfo"], div label[for="SearchRoute"] {
+div label[for="showInfo"], div label[for="SearchRoute"], div label[for="checkCircleSearch"] {
   font-size: 12px;
   margin-top: 4px;
 }

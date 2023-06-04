@@ -42,14 +42,14 @@
   resolved "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.16.17.tgz"
   integrity sha512-mdPjPxfnmoqhgpiEArqi4egmBAMYvaObgn4poorpUaqmvzzbvqbowRllQ+ZgzGVMGKaPkqUmPDOOFQRUFDmeUw==
 
-"@esri/arcgis-rest-fetch@4.0.0":
+"@esri/arcgis-rest-fetch@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/@esri/arcgis-rest-fetch/-/arcgis-rest-fetch-4.0.0.tgz"
   integrity sha512-ybsMO2L4cxx0IaIx0jv6/VbXidZmQIiGD3bvPF1/n1Y1ljHIhCvX+ti54cQSfg/HW2+VAVVnt8EPD/omVhNAyg==
   dependencies:
     node-fetch "^3.0.0"
 
-"@esri/arcgis-rest-form-data@4.0.0":
+"@esri/arcgis-rest-form-data@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/@esri/arcgis-rest-form-data/-/arcgis-rest-form-data-4.0.0.tgz"
   integrity sha512-cAS9HONIJgseCDdgRCIHBR4CE/OQXZIRP3FoNx/w+XyjVqK6yQiwCeXpYLfHeEZ6GEQqrA9XUBxifWG9UaJyXA==
@@ -66,13 +66,21 @@
     "@types/terraformer__arcgis" "^2.0.0"
     tslib "^1.13.0"
 
-"@esri/arcgis-rest-request@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@esri/arcgis-rest-request/-/arcgis-rest-request-4.0.0.tgz"
-  integrity sha512-loPY4OXVNUoplk/ACUf0teXCyrSqAhlx5QjQlxMGc0Gipc3nX3EY6XDtAYSjX7TZTpGocl1WFsnOy3ym6rAWWQ==
+"@esri/arcgis-rest-places@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@esri/arcgis-rest-places/-/arcgis-rest-places-1.0.0.tgz"
+  integrity sha512-S3AYaSkq/BTuc4LNrL2Hir8Ze5WRqJD4b5QL9C6uxYkQ3U1O58JwnTW6YXFxsHJCAG1CinKVQ++LIiXRoWa5Fg==
   dependencies:
-    "@esri/arcgis-rest-fetch" "4.0.0"
-    "@esri/arcgis-rest-form-data" "4.0.0"
+    tslib "^2.3.0"
+
+"@esri/arcgis-rest-request@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/@esri/arcgis-rest-request/-/arcgis-rest-request-4.2.0.tgz"
+  integrity sha512-2XLy0Ivar3BIr4ehe/5hYottIqiHnC8LDqhMPglufoLcsX9LFOr81X74aPXX0Ad3xVMaSy2HLLVNoNOkhwFGqQ==
+  dependencies:
+    "@esri/arcgis-rest-fetch" "^4.0.0"
+    "@esri/arcgis-rest-form-data" "^4.0.0"
+    mitt "^3.0.0"
     tslib "^2.3.1"
 
 "@esri/arcgis-rest-routing@^4.0.3":
@@ -662,6 +670,11 @@ minizlib@^2.1.1:
   dependencies:
     minipass "^3.0.0"
     yallist "^4.0.0"
+
+mitt@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/mitt/-/mitt-3.0.0.tgz"
+  integrity sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==
 
 mkdirp@^1.0.3:
   version "1.0.4"

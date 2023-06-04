@@ -28,17 +28,7 @@
         <option value="OSM:Standard">OSM</option>
         <option value="OSM:Streets">OSM:Streets</option>
       </select>
-      <div>
-        <input type=number placeholder="nombre" value="25" id="numPlace" >
-        <select id="places-select" >
-          <option value="">Choisir un type d'emplacement...</option>
-          <option value="Hospital">Hopital</option>
-          <option value="Gas station">Stations d'essence</option>
-          <option value="Food">Nourriture</option>
-          <option value="Hotel">Hotels</option>
-          <option value="Parks and Outdoors">Parcs</option>
-        </select>
-      </div>
+      
       <div>
         <input type="checkbox" id="showInfo">
         <label for="showInfo">Montrer les infos a chaque click</label>
@@ -60,6 +50,35 @@
           <input type="checkbox" id="SearchRoute">
           <label for="SearchRoute">Chercher une route entre deux (02) points</label>
         </div>
+      </div>
+      <hr>
+      <div>Recherche</div>
+      <div>
+        <input type=number placeholder="nombre" value="25" id="numPlace" >
+        <select id="places-select" >
+          <option value="">Choisir un type d'emplacement...</option>
+          <option value="Hospital">Hopital</option>
+          <option value="Fuel Station">Stations d'essence</option>
+          <option value="Restaurant">Restaurants</option>
+          <option value="Hotel">Hotels</option>
+          <option value="Volcano">Volcan</option>
+          <option value="Police Station">Comissariats</option>
+          <option value="Parking">Parking</option>
+          <option value="Travel Agency">Agence de Voyage</option>
+          <option value="Marketplace">Marche</option>
+          <option value="Government Building">Gouvernement</option>
+          <option value="Drugstore">Pharmacies</option>
+          <option value="Sports & Recreation">Sport</option>
+          <option value="River">Riviere</option>
+          <option value="Mountain">Montagne</option>
+          <option value="Monument">Monument</option>
+          <option value="Park">Parcs</option>
+          <option value="Arts & Entertainment">Arts & Loisirs</option>
+        </select>
+      </div>
+      <div>
+        <input type="checkbox" id="checkCircleSearch">
+        <label for="checkCircleSearch">Rechercher dans un perimetre precis</label>        
       </div>
     </div>
     <div id="popup" class="ol-popup">

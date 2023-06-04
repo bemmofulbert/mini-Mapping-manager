@@ -1,4 +1,4 @@
-import {Map, View,} from 'ol';
+import {Map, View,Feature} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { apply } from 'ol-mapbox-style';
@@ -14,6 +14,7 @@ import GeoJSONFeature from "ol/format/GeoJSON"
 import VectorSource from "ol/source/Vector";
 import { Circle, Style,Fill,Text,Stroke } from "ol/style";
 import { apiKey } from './config.js';
+import { CircleSearch } from './CircleSearch.js';
 
 
 
@@ -42,13 +43,13 @@ const placesLayer = new VectorLayer({
             new Style({
               image: new Circle({
                 radius: 5,
-                fill: new Fill({ color: "lightgreen" }),
+                fill: new Fill({ color: feature.get("color")|| "lightgreen" }),
                 stroke: new Stroke({ color: "hsl(220, 80%, 40%)", width: 2 })
               }),
               text: new Text({
                 font: "14px sans-serif",
                 textAlign: "left",
-                text: feature.get("address") ||"Proche",
+                text: feature.get("address") || feature.name || "Proche",
                 offsetX: 8, // bouge le texte vers la droite
                 offsetY: 2, // bouge le texte vers le bas
                 fill: new Fill({ color: "hsl(220, 80%, 40%)" }),
@@ -57,6 +58,7 @@ const placesLayer = new VectorLayer({
             }),
           declutter: true
 });
+const searchArea = new VectorLayer();
 //---------------------Routes
 let route  = new Route(map) 
 MouseRouteListenner(map,route)
@@ -68,7 +70,7 @@ const setBasemap = (name) => {
 
     route.onSetBaseMap()
     map.addLayer(placesLayer);
-    placesLayer.setVisible(true);    
+    map.addLayer(searchArea)   
   })
   
 };
@@ -129,7 +131,7 @@ let geocodeProcessing = (categorie,nombre)=>{
         params: {
           category: categorie,
           location: point.join(","),
-          maxLocations: 27
+          maxLocations: nombre
         }
       })
       .then((response) => {
@@ -145,12 +147,19 @@ let geocodeProcessing = (categorie,nombre)=>{
       });
 }
 
+/////////////////////////////////Circle Search --------------////////////
+var circleSearch = new CircleSearch(map,searchArea,placesLayer,750)
 function showPlaces() {
+  // verifions si la precision est activee
+  const precis = document.getElementById("checkCircleSearch").checked
+  if(precis) {
+    circleSearch.FindPlaces();
+    return;
+  }
+  //-----------
   const categorie = document.getElementById("places-select").value;
   const nombre = document.getElementById("numPlace").value;
   if(nombre != null && nombre != undefined){
-    
-    
     geocodeProcessing(categorie,nombre)
   }
 }
@@ -182,6 +191,10 @@ var goToSpecificPosition = ()=>{
 
     document.title = message
     
+  })
+  .catch ((error)=>{
+    alert("un probleme est survenu lors de l'utilisation du reverse geocoder")
+    console.log(error)
   })
    
   }
@@ -235,3 +248,8 @@ document.getElementById("myPos").addEventListener("click",(e)=>{
       });
     }
 })
+
+
+
+
+
