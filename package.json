@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@capacitor/android": "^4.0.0",
-    "@capacitor/cli": "^4.0.0",
+    "@capacitor/cli": "^5.0.4",
     "@capacitor/core": "^4.0.0",
     "@esri/arcgis-rest-geocoding": "^3.6.0",
     "@esri/arcgis-rest-places": "^1.0.0",
