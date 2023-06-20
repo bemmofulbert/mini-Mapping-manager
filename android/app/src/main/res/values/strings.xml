@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WebMapping</string>
+    <string name="title_activity_main">WebMapping</string>
+    <string name="package_name">com.bemsproduction.webmapping</string>
+    <string name="custom_url_scheme">com.bemsproduction.webmapping</string>
+</resources>

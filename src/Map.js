@@ -15,6 +15,7 @@ import VectorSource from "ol/source/Vector";
 import { Circle, Style,Fill,Text,Stroke } from "ol/style";
 import { apiKey } from './config.js';
 import { CircleSearch } from './CircleSearch.js';
+import { list_search } from './ListSearch.js';
 
 
 
@@ -81,7 +82,7 @@ setBasemap(e.target.value);
 });
 
 
-const popup = new olPopup({
+export const popup = new olPopup({
   element: document.getElementById("ol-popup"),
      autoPan: true,
      autoPanAnimation: {
@@ -126,7 +127,7 @@ let geocodeProcessing = (categorie,nombre)=>{
       //GEOCODING
       geocode({
         authentication,
-        outFields: "Place_addr,PlaceName",
+        outFields: "Place_addr,PlaceName,description",
     
         params: {
           category: categorie,
@@ -139,6 +140,7 @@ let geocodeProcessing = (categorie,nombre)=>{
 
         placesLayer.getSource().clear();
         placesLayer.getSource().addFeatures(features);
+        list_search(placesLayer.getSource().getFeatures());
         console.log(categorie)
       })
       .catch((error) => {

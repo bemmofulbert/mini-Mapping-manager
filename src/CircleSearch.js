@@ -5,6 +5,7 @@ import { findPlacesNearPoint } from "@esri/arcgis-rest-places";
 import { ApiKeyManager } from "@esri/arcgis-rest-request";
 import { apiKey } from './config.js';
 import { transform } from 'ol/proj'
+import { list_search } from "./ListSearch.js";
 
 
 
@@ -118,6 +119,8 @@ export class CircleSearch {
                     geometry: new Point(location),
                 });
                 marker.set("address",result.name+"\nDistance: "+(result.distance / 1000).toFixed(1)+"km")
+                marker.set("place","placeId: "+result.placeId+", <br>categorie: "+result.categories[0].label)
+                
                 places.push(marker);
 
             });
@@ -128,6 +131,7 @@ export class CircleSearch {
             ICI.set("address","ICI\nDistance: 0km")
             ICI.set("color","red")
             places.push(ICI);
+            list_search(places);
             const source = new VectorSource({features: places});
             this.placesLayer.setSource(source)
         })
