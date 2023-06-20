@@ -10,7 +10,7 @@
     "vite": "^4.0.4"
   },
   "dependencies": {
-    "@capacitor/android": "^4.0.0",
+    "@capacitor/android": "^5.0.5",
     "@capacitor/cli": "^4.8.0",
     "@capacitor/core": "^4.8.0",
     "@esri/arcgis-rest-geocoding": "^3.6.0",
